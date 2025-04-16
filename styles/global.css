@@ -1,0 +1,448 @@
+:root {
+    /* Dark Theme Colors */
+    --color-dark-bg: #0D0D10;
+    --color-dark-card: #1A1A1F;
+    --color-dark-border: #2A2A35;
+    --color-dark-text: #FFFFFF;
+    --color-dark-text-secondary: #A0A0B0;
+    
+    /* Light Theme Colors */
+    --color-light-bg: #F5F5F7;
+    --color-light-card: #FFFFFF;
+    --color-light-border: #E5E5E7;
+    --color-light-text: #0D0D10;
+    --color-light-text-secondary: #6B6B80;
+    
+    /* Accent Colors */
+    --color-purple: #7C3AED;
+    --color-cyan: #22D3EE;
+    --color-orange: #F97316;
+    --color-green: #10B981;
+}
+
+/* Base Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-dark-bg);
+    color: var(--color-dark-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Theme Classes */
+body.dark {
+    background-color: var(--color-dark-bg);
+    color: var(--color-dark-text);
+}
+
+body.light {
+    background-color: var(--color-light-bg);
+    color: var(--color-light-text);
+}
+
+/* Custom Utility Classes */
+.bg-dark {
+    background-color: var(--color-dark-bg);
+}
+
+.bg-light {
+    background-color: var(--color-light-bg);
+}
+
+.font-inter {
+    font-family: 'Inter', sans-serif;
+}
+
+.font-outfit {
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: var(--color-purple);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.btn-primary:hover:before {
+    left: 100%;
+}
+
+/* Enhanced Logo */
+.nexafit-logo {
+    position: relative;
+    padding: 5px 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(124, 58, 237, 0.3);
+    background-color: rgba(13, 13, 16, 0.8);
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nexafit-logo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
+}
+
+/* Glow Effects */
+.shadow-glow {
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
+}
+
+.glow-blob {
+    position: fixed;
+    top: -150px;
+    right: -150px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.2) 0%, rgba(34, 211, 238, 0.1) 50%, rgba(0, 0, 0, 0) 70%);
+    filter: blur(50px);
+    z-index: -1;
+    animation: float 15s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Friends Stats Animations */
+@keyframes confettiFall {
+    0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100px) rotate(360deg); opacity: 0; }
+}
+
+.friend-card {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 1;
+    display: block;
+}
+
+#friends-stats-section {
+    display: block !important;
+    opacity: 1;
+    visibility: visible;
+}
+
+#friends-container {
+    display: grid;
+    opacity: 1;
+    visibility: visible;
+}
+
+.confetti {
+    position: absolute;
+    animation: confettiFall 2s ease-in-out forwards;
+    z-index: 20;
+}
+
+.friend-aura {
+    animation: pulse 3s infinite;
+}
+
+@keyframes footstep {
+    0% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+@keyframes flame {
+    0% {
+        transform: scale(1) rotate(-2deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(2deg);
+    }
+    100% {
+        transform: scale(1) rotate(-2deg);
+    }
+}
+
+@keyframes particle-rise {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Animation Utility Classes */
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-pulse {
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animation-delay-200 {
+    animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+    animation-delay: 0.4s;
+}
+
+.animation-delay-600 {
+    animation-delay: 0.6s;
+}
+
+/* Streak Flame */
+.streak-flame-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.streak-flame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(249, 115, 22, 0.4) 0%, rgba(249, 115, 22, 0.1) 70%, rgba(0, 0, 0, 0) 100%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    filter: blur(5px);
+    animation: flame 2s ease-in-out infinite;
+    z-index: 0;
+}
+
+.streak-counter {
+    position: relative;
+    z-index: 1;
+}
+
+/* Footstep Trail */
+.footstep {
+    position: absolute;
+    width: 6px;
+    height: 10px;
+    background-color: rgba(16, 185, 129, 0.7);
+    border-radius: 50%;
+    animation: footstep 3s linear forwards;
+}
+
+/* Mood Selector */
+.mood-selector {
+    display: flex;
+    align-items: center;
+}
+
+.mood-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.mood-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.mood-btn.active {
+    border-color: var(--color-purple);
+    background-color: rgba(124, 58, 237, 0.3);
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--color-purple);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--color-purple);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* CTA Button Pulse */
+.cta-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cta-button:hover::after {
+    opacity: 1;
+    animation: pulse 1.5s infinite;
+}
+
+/* Success Particles */
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgba(124, 58, 237, 0.8);
+    animation: particle-rise 1.5s ease-out forwards;
+}
+
+/* Content Visibility Classes */
+.content-hidden {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    /* Ensure content doesn't stay hidden */
+    animation: fadeIn 0.6s ease-out 0.3s forwards;
+}
+
+.content-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-reveal-trigger {
+    position: relative;
+    /* Ensure content remains visible */
+    opacity: 1 !important;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .glow-blob {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .streak-flame-container {
+        width: 100px;
+        height: 100px;
+    }
+}

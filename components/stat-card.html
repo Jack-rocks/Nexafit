@@ -1,0 +1,89 @@
+<!-- NexaFit Stat Card Component -->
+<!-- Usage: Include this file and pass the following parameters via JavaScript:
+     - id: Unique identifier for the card
+     - title: Card title (e.g., "Steps", "Calories")
+     - value: Current value (e.g., "8,742", "1.6 L")
+     - icon: Feather icon name (e.g., "activity", "droplet")
+     - color: Color theme (e.g., "green", "purple", "cyan", "orange")
+     - goal: Target value (e.g., "10,000", "3 L")
+     - progress: Percentage complete (e.g., 87, 53)
+-->
+
+<div class="stat-card p-6 rounded-xl bg-gray-800/50 border border-gray-700 hover:border-purple-500/50 transition-all duration-300 relative overflow-hidden">
+    <div class="stat-aura absolute -top-10 -right-10 w-40 h-40 bg-color-500/20 rounded-full filter blur-xl"></div>
+    <div class="relative z-10">
+        <div class="flex justify-between items-start mb-4">
+            <div>
+                <h3 class="text-gray-400 text-sm stat-title">Steps</h3>
+                <p class="font-outfit font-bold text-3xl stat-value">0</p>
+            </div>
+            <div class="w-10 h-10 rounded-full bg-color-500/20 flex items-center justify-center stat-icon-bg">
+                <i data-feather="activity" class="text-color-500 stat-icon"></i>
+            </div>
+        </div>
+        <div class="w-full bg-gray-700 rounded-full h-2 mb-2">
+            <div class="bg-gradient-to-r from-color-400 to-color-600 h-2 rounded-full stat-progress-bar" style="width: 0%"></div>
+        </div>
+        <div class="flex justify-between text-xs text-gray-400">
+            <span class="stat-goal">Goal: 0</span>
+            <span class="stat-percentage">0%</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    /**
+     * Initialize a stat card with the provided parameters
+     * @param {string} id - Card identifier
+     * @param {Object} params - Card parameters
+     */
+    function initStatCard(id, params) {
+        const card = document.getElementById(id);
+        if (!card) return;
+        
+        // Set card title
+        const titleEl = card.querySelector('.stat-title');
+        if (titleEl && params.title) titleEl.textContent = params.title;
+        
+        // Set card value
+        const valueEl = card.querySelector('.stat-value');
+        if (valueEl && params.value) valueEl.textContent = params.value;
+        
+        // Set card icon
+        const iconEl = card.querySelector('.stat-icon');
+        if (iconEl && params.icon) {
+            iconEl.setAttribute('data-feather', params.icon);
+            // Re-initialize feather icon
+            if (typeof feather !== 'undefined') {
+                feather.replace();
+            }
+        }
+        
+        // Set card color
+        if (params.color) {
+            const auraEl = card.querySelector('.stat-aura');
+            const iconBgEl = card.querySelector('.stat-icon-bg');
+            const iconEl = card.querySelector('.stat-icon');
+            const progressBarEl = card.querySelector('.stat-progress-bar');
+            
+            if (auraEl) auraEl.className = auraEl.className.replace('bg-color-500/20', `bg-${params.color}-500/20`);
+            if (iconBgEl) iconBgEl.className = iconBgEl.className.replace('bg-color-500/20', `bg-${params.color}-500/20`);
+            if (iconEl) iconEl.className = iconEl.className.replace('text-color-500', `text-${params.color}-500`);
+            if (progressBarEl) progressBarEl.className = progressBarEl.className
+                .replace('from-color-400', `from-${params.color}-400`)
+                .replace('to-color-600', `to-${params.color}-600`);
+        }
+        
+        // Set goal text
+        const goalEl = card.querySelector('.stat-goal');
+        if (goalEl && params.goal) goalEl.textContent = `Goal: ${params.goal}`;
+        
+        // Set progress percentage
+        const percentageEl = card.querySelector('.stat-percentage');
+        if (percentageEl && params.progress) percentageEl.textContent = `${params.progress}%`;
+        
+        // Set progress bar width
+        const progressBarEl = card.querySelector('.stat-progress-bar');
+        if (progressBarEl && params.progress) progressBarEl.style.width = `${params.progress}%`;
+    }
+</script>

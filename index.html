@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexaFit - Track Smarter. Move Better.</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/global.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body class="bg-dark text-white font-inter transition-colors duration-300 ease-in-out">
+    <div class="glow-blob"></div>
+    
+    <!-- Navbar -->
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center">
+            <a href="index.html">
+                <img src="assets/images/nexafit-logo-minimal.svg" alt="NexaFit Logo" class="h-10 w-auto hover:opacity-80 transition-opacity">
+            </a>
+        </div>
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-button" class="md:hidden flex items-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
+            <span class="sr-only">Open main menu</span>
+            <!-- Icon when menu is closed -->
+            <svg id="menu-closed-icon" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <!-- Icon when menu is open -->
+            <svg id="menu-open-icon" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <!-- Desktop menu -->
+        <div class="hidden md:flex items-center space-x-6" id="desktop-menu">
+            <a href="index.html" class="text-sm font-medium hover:text-purple-400 transition-colors">Home</a>
+            <a href="dashboard.html" class="text-sm font-medium hover:text-purple-400 transition-colors">Dashboard</a>
+            <a href="profile.html" class="text-sm font-medium hover:text-purple-400 transition-colors">Profile</a>
+            <a href="dashboard.html" class="btn-primary text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 inline-block mr-2">
+                Login
+            </a>
+            <a href="signup.html" class="btn-primary text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 inline-block">
+                Signup
+            </a>
+        </div>
+    </nav>
+    
+    <!-- Mobile menu (hidden by default) -->
+    <div class="md:hidden hidden bg-gray-900 absolute z-50 w-full" id="mobile-menu">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-700">
+            <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-purple-500/20 hover:text-purple-400">Home</a>
+            <a href="dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-purple-500/20 hover:text-purple-400">Dashboard</a>
+            <a href="profile.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-purple-500/20 hover:text-purple-400">Profile</a>
+            <div class="flex space-x-2 mt-4 px-3">
+                <a href="dashboard.html" class="btn-primary text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 inline-block flex-1 text-center">
+                    Login
+                </a>
+                <a href="signup.html" class="btn-primary text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 inline-block flex-1 text-center">
+                    Signup
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 flex flex-col items-start">
+            <h1 class="font-outfit font-bold text-6xl md:text-[10rem] leading-tight mb-6 animate-fade-in">
+                <span class="block">Track Smarter.</span>
+                <span class="block bg-gradient-to-r from-purple-400 to-cyan-400 text-transparent bg-clip-text">Move Better.</span>
+            </h1>
+            <p class="text-gray-300 text-lg mb-8 animate-fade-in animation-delay-200">
+                Your personalized fitness journey starts here. Track your progress, visualize your achievements, and stay motivated with NexaFit.
+            </p>
+            <div class="flex space-x-4 mb-8 animate-fade-in animation-delay-300">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mr-2">
+                        <i data-feather="bar-chart-2" class="text-purple-400"></i>
+                    </div>
+                    <span class="text-sm">Advanced Analytics</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center mr-2">
+                        <i data-feather="award" class="text-cyan-400"></i>
+                    </div>
+                    <span class="text-sm">Achievement System</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center mr-2">
+                        <i data-feather="users" class="text-orange-400"></i>
+                    </div>
+                    <span class="text-sm">Community Support</span>
+                </div>
+            </div>
+            <a href="dashboard.html" class="cta-button btn-primary text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 animate-fade-in animation-delay-400 inline-block">
+                Start My Fitness Journey
+            </a>
+        </div>
+        <div class="md:w-1/2 mt-12 md:mt-0 animate-fade-in animation-delay-600">
+            <div class="relative">
+                <div class="fitness-graphic w-full h-96 bg-gradient-to-br from-purple-900/30 to-cyan-900/30 rounded-2xl flex items-center justify-center overflow-hidden">
+                    <div class="fitness-aura absolute w-64 h-64 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 filter blur-xl animate-pulse"></div>
+                    <!-- Removed animated-cards.svg -->
+                    <!-- Animated Content Cards -->
+                    <div class="absolute top-1/4 left-1/4 bg-gray-800/80 backdrop-blur-sm p-4 rounded-lg shadow-glow animate-fade-in animation-delay-800 transform hover:scale-110 transition-all duration-300">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-purple-500/30 flex items-center justify-center mr-3">
+                                <i data-feather="activity" class="text-purple-400 w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-300">Daily Steps</p>
+                                <p class="text-lg font-semibold font-outfit">8,742 steps</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-1/4 right-1/4 bg-gray-800/80 backdrop-blur-sm p-4 rounded-lg shadow-glow animate-fade-in animation-delay-1000 transform hover:scale-110 transition-all duration-300">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-cyan-500/30 flex items-center justify-center mr-3">
+                                <i data-feather="droplet" class="text-cyan-400 w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-300">Hydration</p>
+                                <p class="text-lg font-semibold font-outfit">1.6L / 3.0L</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute top-10 right-10 bg-gray-800/80 backdrop-blur-sm p-3 rounded-lg shadow-glow animate-fade-in animation-delay-800 transform hover:scale-105 transition-all">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-green-500/30 flex items-center justify-center mr-2">
+                                <i data-feather="trending-up" class="text-green-400 w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400">Weekly Progress</p>
+                                <p class="text-sm font-semibold">+12.5%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-10 left-10 bg-gray-800/80 backdrop-blur-sm p-3 rounded-lg shadow-glow animate-fade-in animation-delay-1000 transform hover:scale-105 transition-all">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-purple-500/30 flex items-center justify-center mr-2">
+                                <i data-feather="zap" class="text-purple-400 w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400">Streak</p>
+                                <p class="text-sm font-semibold">14 Days</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute -bottom-5 -right-5 w-24 h-24 bg-gradient-to-br from-orange-500 to-pink-500 rounded-full filter blur-xl opacity-60 animate-float"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="container mx-auto px-6 py-20">
+        <div class="text-center mb-16">
+            <h2 class="font-outfit font-bold text-3xl md:text-4xl mb-4">Unique Features</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto">Experience fitness tracking like never before with our innovative features designed to keep you motivated.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="feature-card p-6 rounded-xl bg-gray-800/50 border border-gray-700 hover:border-purple-500/50 transition-all duration-300 transform hover:scale-105 hover:shadow-glow">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 flex items-center justify-center mb-4">
+                    <i data-feather="activity" class="text-white"></i>
+                </div>
+                <h3 class="font-outfit font-semibold text-xl mb-2">Aura Visualizations</h3>
+                <p class="text-gray-300">Animated glowing auras around your progress indicators that change color based on your performance.</p>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="feature-card p-6 rounded-xl bg-gray-800/50 border border-gray-700 hover:border-purple-500/50 transition-all duration-300 transform hover:scale-105 hover:shadow-glow">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 flex items-center justify-center mb-4">
+                    <i data-feather="smile" class="text-white"></i>
+                </div>
+                <h3 class="font-outfit font-semibold text-xl mb-2">Mood Tracking</h3>
+                <p class="text-gray-300">Track your daily mood with emojis and visualize your emotional journey alongside your fitness progress.</p>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="feature-card p-6 rounded-xl bg-gray-800/50 border border-gray-700 hover:border-purple-500/50 transition-all duration-300 transform hover:scale-105 hover:shadow-glow">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center mb-4">
+                    <i data-feather="zap" class="text-white"></i>
+                </div>
+                <h3 class="font-outfit font-semibold text-xl mb-2">Gamified Streaks</h3>
+                <p class="text-gray-300">Watch your streak flame grow as you consistently meet your fitness goals. Bigger streak, bigger flame!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="container mx-auto px-6 py-16">
+        <div class="quote-box p-8 rounded-xl bg-gradient-to-br from-purple-900/30 to-cyan-900/30 border border-gray-700 relative overflow-hidden">
+            <div class="absolute -top-10 -left-10 w-40 h-40 bg-purple-500/20 rounded-full filter blur-xl"></div>
+            <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-cyan-500/20 rounded-full filter blur-xl"></div>
+            
+            <blockquote class="relative z-10 text-center">
+                <p id="quote-text" class="font-outfit text-xl md:text-2xl italic mb-4">"The only bad workout is the one that didn't happen."</p>
+                <footer id="quote-author" class="text-gray-300">- Fitness Wisdom</footer>
+            </blockquote>
+            
+            <div class="flex justify-center mt-6">
+                <button id="motivate-me" class="bg-white/10 hover:bg-white/20 text-white font-medium py-2 px-6 rounded-lg transition-all duration-300">
+                    Motivate Me
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-4">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0 md:w-1/3">
+                    <p class="text-gray-400 mt-2 font-sora">Track Smarter. Move Better.</p>
+                    <div class="flex space-x-6 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i data-feather="facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Support Section -->
+                <div class="mb-8 md:mb-0 md:w-1/3">
+                    <h3 class="text-lg font-outfit font-semibold mb-4 text-white">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Community Forum</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Support</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="md:w-1/3">
+                    <h3 class="text-lg font-outfit font-semibold mb-4 text-white">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400 text-sm">© 2025 NexaFit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/theme.js"></script>
+    <script src="scripts/data.js"></script>
+    <script src="scripts/animations.js"></script>
+    <script src="scripts/main.js"></script>
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize quote rotator
+            if (typeof initQuoteRotator === 'function') {
+                initQuoteRotator();
+            }
+            
+            // Handle motivate me button
+            const motivateBtn = document.getElementById('motivate-me');
+            if (motivateBtn) {
+                motivateBtn.addEventListener('click', function() {
+                    if (typeof rotateQuote === 'function') {
+                        rotateQuote();
+                    }
+                });
+            }
+            
+            // Mobile menu is now handled by main.js
+        });
+    </script>
+</body>
+</html>

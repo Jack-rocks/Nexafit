@@ -1,0 +1,49 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient Definitions -->
+  <defs>
+    <linearGradient id="avatarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED" /> <!-- Purple -->
+      <stop offset="100%" stop-color="#22D3EE" /> <!-- Cyan -->
+    </linearGradient>
+    <radialGradient id="avatarGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(100 100) rotate(90) scale(90)">
+      <stop offset="0" stop-color="#7C3AED" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Glow Effect -->
+  <circle cx="100" cy="100" r="90" fill="url(#avatarGlow)" filter="url(#glow)" class="pulse-animation"/>
+  
+  <!-- Avatar Background -->
+  <circle cx="100" cy="100" r="80" fill="#1A1A1F" />
+  <circle cx="100" cy="100" r="80" stroke="url(#avatarGradient)" stroke-width="3" stroke-opacity="0.8" class="pulse-animation" />
+  
+  <!-- Head -->
+  <circle cx="100" cy="85" r="35" fill="#2A2A35" />
+  
+  <!-- Body -->
+  <path d="M60 180C60 150 80 140 100 140C120 140 140 150 140 180" fill="#2A2A35" />
+  
+  <!-- Initials -->
+  <text x="100" y="95" font-family="Outfit, sans-serif" font-size="36" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">AJ</text>
+  
+  <!-- Fitness Icon -->
+  <circle cx="150" cy="50" r="15" fill="url(#avatarGradient)" opacity="0.2" />
+  <path d="M145 50H155M150 45V55" stroke="white" stroke-width="2" stroke-linecap="round" />
+  
+  <!-- Animated Elements (for web) -->
+  <style>
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+    .pulse-animation {
+      animation: pulse 3s infinite;
+    }
+  </style>
+</svg>

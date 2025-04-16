@@ -1,0 +1,14 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7C3AED" /> <!-- Purple -->
+      <stop offset="100%" stop-color="#22D3EE" /> <!-- Cyan -->
+    </linearGradient>
+  </defs>
+  
+  <!-- Text with Sora font styling -->
+  <text x="5" y="28" font-family="Sora, sans-serif" font-weight="600" font-size="24" fill="url(#logoGradient)">
+    NexaFit
+  </text>
+</svg>
