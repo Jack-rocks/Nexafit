@@ -4,7 +4,6 @@ NexaFit is a frontend-only fitness web application built with Tailwind CSS, HTML
 
 ## Features
 
-- **Dark/Light Theme Toggle**: Switch between dark and light modes with localStorage persistence
 - **Aura Visualizations**: Animated glowing auras around avatars and progress bars
 - **Motivational Quote Generator**: Rotating quotes with a "Motivate Me" button
 - **Live Footstep Trail**: Animated footprints on the dashboard as step count increases
@@ -12,36 +11,8 @@ NexaFit is a frontend-only fitness web application built with Tailwind CSS, HTML
 - **Gamified Flame Streaks**: Flame animation that grows with user's streak
 - **Animated Section Transitions**: Smooth animations between sections
 - **Today's Flow Timeline**: Visual timeline of daily activities
+- **Friends Stats** section to compare progress with others
 
-## Project Structure
-
-```
-nexafit/
-├── index.html                (Landing Page)
-├── dashboard.html            (User's Dashboard)
-├── profile.html              (User's Profile & Mood Tracking)
-├── components/
-│   ├── navbar.html
-│   ├── footer.html
-│   └── stat-card.html
-├── scripts/
-│   ├── data.js               (Progress logic, quote rotator, mood tracker)
-│   ├── theme.js              (Dark/Light theme toggle via localStorage)
-│   └── animations.js         (Reusable animations & scroll reveals)
-├── styles/
-│   ├── tailwind.css          (Tailwind config & imports)
-│   └── global.css            (Custom animations & keyframes)
-├── assets/
-│   ├── icons/
-│   ├── images/
-│   └── fonts/
-```
-
-## Getting Started
-
-1. Clone or download this repository
-2. Open `index.html` in your browser to view the landing page
-3. Navigate to the dashboard and profile pages using the navigation links
 
 ## Technologies Used
 
@@ -53,10 +24,6 @@ nexafit/
 - **Web Storage API**: For data persistence using localStorage
 
 ## Features Implementation
-
-### Theme Toggle
-
-The app uses a dark theme by default with the ability to toggle to light mode. Theme preference is saved in localStorage for persistence across sessions.
 
 ### Mood Tracking
 
@@ -74,7 +41,6 @@ The app includes various animations:
 ### Data Persistence
 
 User data is stored in localStorage, including:
-- Theme preference
 - Daily mood selections
 - User bio and profile information
 - Avatar image (as base64)
